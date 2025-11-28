@@ -127,7 +127,8 @@ export default function Dashboard() {
                 // Enables access from different WiFi and mobile data
                 {
                     urls: [
-                        'turn:mylink.slowrox.com:3478?transport=tcp'   // TCP (Port 3478 - Verified OPEN)
+                        'turn:mylink.slowrox.com:3478?transport=tcp',  // TCP (Port 3478 - Verified OPEN)
+                        'turn:mylink.slowrox.com:3478'                 // UDP (Port 3478 - Standard)
                     ],
                     username: 'mylink',
                     credential: 'MyL1nk@TURN2025!'
