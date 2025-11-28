@@ -119,10 +119,7 @@ export default function Dashboard() {
 
         const pc = new RTCPeerConnection({
             iceServers: [
-                // Google STUN servers (free, for NAT detection)
-                { urls: 'stun:stun.l.google.com:19302' },
-                { urls: 'stun:stun1.l.google.com:19302' },
-
+                // STUN Removed to FORCE TCP RELAY
                 // MyLink TURN server (for relay when direct connection fails)
                 // Enables access from different WiFi and mobile data
                 {
