@@ -128,14 +128,13 @@ export default function Dashboard() {
                 {
                     urls: [
                         'turns:mylink.slowrox.com:5349',               // TLS (Port 5349 - Standard Secure)
-                        'turn:mylink.slowrox.com:3478?transport=tcp',  // TCP (Port 3478 - Fallback)
-                        'turn:mylink.slowrox.com:3478'                 // UDP (Port 3478 - Standard)
+                        'turn:mylink.slowrox.com:3478?transport=tcp'   // TCP (Port 3478 - Fallback)
                     ],
                     username: 'mylink',
                     credential: 'MyL1nk@TURN2025!'
                 }
             ],
-            // iceTransportPolicy: 'relay', // REMOVED to allow STUN/Direct connections
+            iceTransportPolicy: 'relay', // FORCE RELAY for mobile stability
             iceCandidatePoolSize: 10
         })
 
