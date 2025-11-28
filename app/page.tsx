@@ -119,18 +119,22 @@ export default function Dashboard() {
 
         const pc = new RTCPeerConnection({
             iceServers: [
-                // STUN Removed to FORCE TCP RELAY
+                // Google STUN servers (free, for NAT detection)
+                { urls: 'stun:stun.l.google.com:19302' },
+                { urls: 'stun:stun1.l.google.com:19302' },
+
                 // MyLink TURN server (for relay when direct connection fails)
                 // Enables access from different WiFi and mobile data
                 {
                     urls: [
-                        'turn:mylink.slowrox.com:3478?transport=tcp'   // TCP (Port 3478 - Verified OPEN)
+                        'turn:mylink.slowrox.com:3478?transport=tcp',  // TCP (Port 3478 - Verified OPEN)
+                        'turn:mylink.slowrox.com:3478'                 // UDP (Port 3478 - Standard)
                     ],
                     username: 'mylink',
                     credential: 'MyL1nk@TURN2025!'
                 }
             ],
-            iceTransportPolicy: 'relay', // FORCE RELAY for mobile stability
+            // iceTransportPolicy: 'relay', // REMOVED to allow STUN/Direct connections
             iceCandidatePoolSize: 10
         })
 
